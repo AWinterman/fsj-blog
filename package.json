@@ -17,8 +17,6 @@
     "shoe": "0.0.15",
     "rss": "^0.3.2",
     "jsdom": "^0.11.1",
-    "cheerio": "^0.17.0",
-    "jquery": "^2.1.1",
     "browserify": "^5.9.1",
     "mkdirp": "^0.5.0"
   },
@@ -27,7 +25,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js todos/* README.md posts/* js/*.js"
+    "start": "make; ecstatic --root public"
   },
   "repository": {
     "type": "git",
