@@ -1,0 +1,41 @@
+var fs = require('fs')
+  , exif = require('libexif')
+  , bash = require('bash')
+  , path = require('path')
+
+var dir = './public/images/romania/'
+
+var name_prefix = '/images/romania/'
+
+fs.readdir(dir, function(err, data) {
+  var files = data
+    .filter(function(name) {
+      return name.indexOf('.')
+    })
+    .map(function(d) {
+      var extension = d.slice(-4)
+        , name = d.slice(0, -4)
+
+      return d
+  })
+
+  var result = files.map(function(file, i) {
+    var obj = exif.parse(fs.readFileSync(dir + file))
+
+    obj._name = name_prefix + file
+
+    return obj
+  })
+
+  result.sort(function(a, b) {
+    return to_date(a) - to_date(b)
+  })
+
+  process.stdout.write(JSON.stringify(result.map(function(d) { return d._name })))
+})
+
+function to_date(a) {
+  var a = a.DateTime.split(' ')
+  return new Date(a[0].replace(/:/g, '-') + 'T' + a[1])
+}
+

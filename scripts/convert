@@ -1,0 +1,12 @@
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+trap "exit" INT
+for FILE in public/big-images/romania/*
+do
+  from=$FILE
+  to="JPG:public/images/romania/`basename $FILE`"
+  echo $from '->' $to
+  convert -size "600" $from $to
+done
+IFS=$SAVEIFS
+

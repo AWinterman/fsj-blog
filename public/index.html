@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Literature is Code</title>
+    <style type="text/css">
+
+    ::selection {
+        background-color: rgb(243, 123, 102);
+        color: rgb(241, 240, 240);
+    }
+
+    ::-moz-selection {
+        background-color: rgb(243, 123, 102);
+        color: rgb(241, 240, 240);
+    }
+
+    ::-webkit-selection {
+        background-color: rgb(243, 123, 102);
+        color: rgb(241, 240, 240);
+    }
+
+    body {
+      font-family: "Palatino Linotype","Book Antiqua",Palatino,FreeSerif,serif; 
+      overflow: scroll;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .post h1, .post h2 {
+      text-align: center;
+    }
+
+    .column {
+      display: inline-block;
+    }
+    
+    .post {
+      overflow: hidden;
+      max-width: 30em;
+      margin-left: 4em;
+      margin-right: 2em;
+      padding-top: 1em;
+    }
+
+    .hidden {
+      display: None;
+    }
+
+    .nav:not(.current) {
+      list-style-position: inside;
+      list-style-type: None;
+    }
+
+    .nav.current {
+      list-style-type: circle;
+    }
+
+    @media (min-width: 60em) {
+      .nav-section {
+        position: absolute;
+        top: 3em;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    li {
+      padding-bottom: 0.5em;
+    }
+
+    ul {
+      margin: 0em;
+    }
+
+    h4 {
+      margin: 1em 1em 0.5em;
+    }
+
+    a {
+      color: #6c71c4;
+      text-decoration: none;
+    }
+    
+    .photo {
+      padding: 1em;
+      margin: 2em;
+      text-align: center;
+      border: 1px;
+      border-radius: 7px;
+      background: rgb(36, 34, 39);
+      color: rgb(241, 240, 240);
+    }
+    
+    .photo span {
+      margin-top: 1em;
+      display: block;
+    }
+    
+    .button-wide {
+      border-radius: 7px;
+      background-color: rgb(243, 123, 102);
+      padding: 1em;
+      margin-left: auto;
+      margin-bottom: 1em;
+      width: 90%;
+      text-align: center;
+    }
+
+    .button-wide a {
+      color: white;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    sup {
+      font-size: 75%;
+    }
+
+    blockquote p {
+      padding-left: 1em;
+      border-left: 0.25rem solid rgba(243,123,102,0.5);
+    }
+
+    g.tick text {
+      display: None;
+    }
+
+    g.tick.show text {
+      display: inline;
+      font-size: 0.6em;
+    }
+
+    g.tick line {
+      stroke: grey;
+      stroke-width: 1px;
+    }
+
+    circle {
+      opacity: 0.5;
+    }
+    
+    .domain {
+      display: None;
+    }
+
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="column" id="main"></div>
+    <div class="column nav-section">
+      <ul id="nav">
+      </ul>
+    </div>
+    <script type="text/javascript" src="./bundle.js"></script>
+  </body>
+</html>
