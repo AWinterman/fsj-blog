@@ -1,0 +1,23 @@
+KEY=`cat ~/.ssh/id_rsa.pub`
+
+ssh root@$HOST << EOF
+    echo "apt-get update and install docker"
+    apt-get update
+    apt-get install -y docker.io
+    ln -sf /usr/bin/docker.io /usr/local/bin/docker
+    echo "creating a user for the blerg" 
+    adduser --disabled-password --gecos "User for static file server" blog 
+    usermod -aG docker blog
+    mkdir -p ~/.ssh
+    echo $KEY >> ~/.ssh/authorized_keys
+    mkdir /home/blog/blog
+EOF
+
+scp Dockerfile root@$HOST:/home/blog/blog/Dockerfile
+
+ssh root@$HOST << EOF
+    docker build --tag "lic" /home/blog/blog
+    docker run -v /home/blog/www:/www -p 80:80 --rm lic
+EOF
+
+. scripts/update
