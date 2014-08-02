@@ -4,7 +4,7 @@ RUN apt-get install -y nodejs npm git git-core
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm install -g ecstatic
 
-ADD public/ /www
+VOLUME www/
 ENV VIRTUAL_HOST localhost
 
 RUN bash
