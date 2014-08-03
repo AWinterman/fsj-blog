@@ -17,4 +17,4 @@ If the nice thing you have to say is "Come work for me", then the answer is
 
 ---
 
-Now syndicated [via rss](http://winterm.us/posts-rss.xml)
+Now syndicated [via rss](/posts-rss.xml)

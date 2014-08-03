@@ -80,12 +80,16 @@ function parse(markdown, data, path, main, nav, reverse, done) {
     el.setAttribute('data-name', key)
     el.id = path.concat([key]).join('/')
 
+    var title = key_to_title(key)
+
     var anchor = document.createElement('a')
       , li = document.createElement('li')
+      , span
+
 
     li.appendChild(anchor)
 
-    anchor.innerHTML = key
+    anchor.innerHTML = title ? title.date + ' ' + title.title : key
     anchor.setAttribute('href', '#' + el.id)
 
     data[key].key = key
@@ -161,5 +165,16 @@ function parse(markdown, data, path, main, nav, reverse, done) {
       , done
     )
   }
+}
+
+function key_to_title(key) {
+  var PARSE = /(\d{4}-\d{2}-\d{1,2})-(.*?)\.md$/
+  var res = PARSE.exec(key)
+
+  if(!res) {
+    return false
+  }
+
+  return {date: res[1], title: res[2].replace(/-/g, ' ')}
 }
 

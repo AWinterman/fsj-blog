@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="alternate" type="application/rss+xml" href="/posts-rss.xml" />
     <title>Literature is Code</title>
     <style type="text/css">
 
@@ -28,7 +29,7 @@
       line-height: 1.25;
     }
 
-    .post h1, .post h2 {
+    .post h1, .post h2, .post h3, .post h4{
       text-align: center;
     }
 
@@ -44,17 +45,26 @@
       padding-top: 1em;
     }
 
+    .nav {
+        max-width: 20em;
+    }
+
     .hidden {
       display: None;
     }
 
     .nav:not(.current) {
-      list-style-position: inside;
       list-style-type: None;
     }
 
     .nav.current {
       list-style-type: circle;
+      font-weight: bold;
+    }
+
+    .nav .date {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
     }
 
     @media (min-width: 60em) {
@@ -74,10 +84,6 @@
 
     ul {
       margin: 0em;
-    }
-
-    h4 {
-      margin: 1em 1em 0.5em;
     }
 
     a {

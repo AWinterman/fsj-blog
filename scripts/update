@@ -1,1 +1,2 @@
+make
 rsync -avz public/* root@$HOST:/home/blog/www
