@@ -27,7 +27,7 @@ window.onload = function() {
     go(ee)
   }
 
-  navigation.onclick = function(ev) {
+  navigation.onclick = navigation.ontouchend = function(ev) {
     ev.preventDefault()
     ev.stopPropagation()
     toggleNavigationMenue()
