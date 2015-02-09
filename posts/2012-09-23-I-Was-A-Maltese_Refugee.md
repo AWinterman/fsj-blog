@@ -12,21 +12,21 @@ over the last few months, the Maltese have been flooded with immigrants bound
 for the wealth and stability of Europe, many of whom are rescued off of
 makeshift boats, starving, thirsty, dirty and poor.
 
-	> Not like the brazen giant of Greek fame,
-	> With conquering limbs astride from land to land;
-	> Here at our sea-washed, sunset gates shall stand
-	> A mighty woman with a torch, whose flame
-	> Is the imprisoned lightning, and her name
-	> Mother of Exiles. From her beacon-hand
-	> Glows world-wide welcome; her mild eyes command
-	> The air-bridged harbor that twin cities frame.
-	> "Keep ancient lands, your storied pomp!" cries she
-	> With silent lips. "Give me your tired, your poor,
-	> Your huddled masses yearning to breathe free,
-	> The wretched refuse of your teeming shore.
-	> Send these, the homeless, tempest-ost to me,
-	> I lift my lamp beside the golden door!"
-	> -- The New Collosus, by Emma Lazarus
+> Not like the brazen giant of Greek fame,
+> With conquering limbs astride from land to land;
+> Here at our sea-washed, sunset gates shall stand
+> A mighty woman with a torch, whose flame
+> Is the imprisoned lightning, and her name
+> Mother of Exiles. From her beacon-hand
+> Glows world-wide welcome; her mild eyes command
+> The air-bridged harbor that twin cities frame.
+> "Keep ancient lands, your storied pomp!" cries she
+> With silent lips. "Give me your tired, your poor,
+> Your huddled masses yearning to breathe free,
+> The wretched refuse of your teeming shore.
+> Send these, the homeless, tempest-ost to me,
+> I lift my lamp beside the golden door!"
+> -- The New Collosus, by Emma Lazarus
 
 The Times article described how poorly the Maltese are dealing with this
 influx: First they jail illegal immigrants for six months to a year, often in impromptu

@@ -25,31 +25,46 @@
     body {
       font-family: "Palatino Linotype","Book Antiqua",Palatino,FreeSerif,serif; 
       overflow: scroll;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.25;
     }
-
+    
     h1, h2, h3, h4 {
+
+      border-left: 0.25rem solid rgba(102, 123, 243 ,0.5);
+      border-right: 0.25rem solid rgba(102, 123, 243 ,0.5);
+      padding: 0.2em;
+
       text-align: center;
     }
 
     h1 {
-        font-size: 36pt
+        font-size: 36pt;
+        border-left: 0.25rem solid rgba(243,123,102,0.5);
+        margin-top: 0em;
+        margin-bottom: 0em;
+        padding-top: 1em;
+        padding-bottom: 1em;
     }
 
     h2 {
-        font-size: 18pt
+        font-size: 18pt;
+        border-right: 0.25rem solid rgba(243,123,102,0.5);
     }
 
     h3 {
-        font-size: 18pt
+        font-size: 18pt;
+        border-left: 0.25rem solid rgba(243,123,102,0.5);
     }
 
-    .post, .nav-section {
-      max-width: 30em;
-      margin-left: 4em;
-      margin-right: 2em;
-      padding-top: 1em;
+    @media(min-width: 600px) {
+        section, nav, footer, header {
+          max-width: 37em;
+          margin-left: 4em;
+          margin-right: 2em;
+          padding-top: 1em;
+          width: 50%;
+        }
     }
 
     .hidden {
@@ -65,10 +80,6 @@
       font-weight: bold;
     }
 
-    li.parent {
-        margin-right: -1em;
-    }
-    
     li {
         margin-top: 1em;
     }
@@ -76,11 +87,11 @@
     img {
       width: 100%;
     }
-    
+
     a {
         color: inherit;
     }
-    
+
     .photo {
       padding: 1em;
       margin: 2em;
@@ -110,7 +121,7 @@
       color: white;
     }
 
-    p, li {
+    section p, section li {
       text-align: justify;
     }
 
@@ -121,6 +132,7 @@
     blockquote p {
       padding-left: 1em;
       border-left: 0.25rem solid rgba(243,123,102,0.5);
+      white-space: pre;
     }
 
     g.tick text {
@@ -156,7 +168,8 @@
     <article>
         <section class="post column" id="main"></section>
         <nav class="column nav-section" id="navSection">
-            <a id="navigation" href="#">Navigation</a>
+            <h3><a href="#!/navigation">Navigation</a></h3>
+            <ul id="nav"></ul>
         </nav>
     </article>
     <script type="text/javascript" src="./bundle.js"></script>

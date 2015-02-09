@@ -7,34 +7,22 @@ var add_graph_matrix = require('./graph-matrix')
 var text = require('./html-bundle.json')
 
 window.onload = function() {
-  var nav = document.createElement('ul')
-  nav.id = 'nav'
-  navSection.appendChild(nav)
-  nav.style.display = 'none'
-
-  var toggleNavigationMenue = debounce(toggleNav.bind(window, nav), 10)
-
   var ee = render(main, nav, text)
 
   go(ee)
 
   setCurrentNode(document.getElementById(ee.current))
+
   ee.on('data', function(data) {
     setCurrentNode(document.getElementById(ee.current))
   })
 
-  window.onhashchange = function() {
+  window.addEventListener('hashchange', function() {
     go(ee)
-  }
-
-  navigation.onclick = navigation.ontouchend = function(ev) {
-    ev.preventDefault()
-    ev.stopPropagation()
-    toggleNavigationMenue()
-  }
+  })
 
   ;[].forEach.call(navSection.querySelectorAll('a'), function(el) {
-    var data =key_to_title(el.firstChild.innerHTML || el.innerHTML)
+    var data = key_to_title(el.firstChild.innerHTML || el.innerHTML)
 
     el.innerHTML = util.format(
         '<span class=date>%s</span> <span class="title">%s</title>'
@@ -45,25 +33,26 @@ window.onload = function() {
   })
 }
 
-function go(ee, nav) {
-  if(!ee.current) {
-    ee.write('/README.md')
+function go(ee) {
+  if(window.location.hash === '#!/navigation') {
+      nav.style.display = 'block'
+      main.innerHTML = ''
+  } else {
+      nav.style.display = 'none'
   }
 
+  if(!window.location.hash.length) {
+    ee.write('/README.md')
+  }
   add_satu_mare_images()
   add_graph_matrix()
 }
 
-function toggleNav(nav) {
-  var hidden = nav.style.display === 'none'
-  if(hidden) {
-    nav.style.display = "block"
-  } else {
-    nav.style.display = "none"
-  }
-}
-
 function setCurrentNode(data) {
+  if(!data) {
+    return
+  }
+
   [].forEach.call(navSection.querySelectorAll('a'), function(el) {
     if(el.parentElement) el.parentElement.classList.remove('current')
   })
@@ -76,7 +65,6 @@ function key_to_title(key) {
   var res = PARSE.exec(key)
 
   if(!res || !res[1] || !res[2]) {
-    console.log(key)
     return {date: '', title: key}
   }
 

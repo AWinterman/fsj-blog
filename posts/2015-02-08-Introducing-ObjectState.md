@@ -42,8 +42,6 @@ structure into a request against our push API.
 
 ## ObjectState: What does it do?
 
-> Warning: Techincal
-
 We accomplish this aggregation and updating via a module called ObjectState,
 available on [npm][npm-objectstate]. This module's explicit purpose is to be
 the single source of truth for the combined last-seen state of an arbitrary
