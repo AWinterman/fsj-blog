@@ -1,6 +1,5 @@
 var fs = require('fs')
-  , exif = require('libexif')
-  , bash = require('bash')
+  , Exif = require('exif').ExifImage
   , path = require('path')
 
 var dir = './public/images/romania/'
@@ -19,23 +18,34 @@ fs.readdir(dir, function(err, data) {
       return d
   })
 
-  var result = files.map(function(file, i) {
-    var obj = exif.parse(fs.readFileSync(dir + file))
+  var results = []
 
-    obj._name = name_prefix + file
+ files.forEach(function(file, i) {
+    new Exif({image: path.join(dir, file)}, function(error, obj) {
+        if(error) {
+          throw error
+        }
 
-    return obj
+
+        obj._name = name_prefix + file
+
+        results[i] = obj
+
+        if(results.filter(Boolean).length !== files.length) {
+            return
+        }
+
+        results.sort(function(a, b) {
+          return to_date(a) - to_date(b)
+        })
+
+        process.stdout.write(JSON.stringify(results.map(function(d) { return d._name })))
+    })
   })
-
-  result.sort(function(a, b) {
-    return to_date(a) - to_date(b)
-  })
-
-  process.stdout.write(JSON.stringify(result.map(function(d) { return d._name })))
 })
 
 function to_date(a) {
-  var a = a.DateTime.split(' ')
+  a = a.exif.CreateDate.split(' ')
   return new Date(a[0].replace(/:/g, '-') + 'T' + a[1])
 }
 

@@ -2,11 +2,14 @@ var EventEmitter = require('events').EventEmitter
   , pictures = require('./pictures.json')
   , classlist = require('class-list')
 
-module.exports = add_satu_mare_images
+module.exports = function() {
+  if(window.location.hash.slice(2) ===  '/posts/2014-05-14-satu-mare.md') {
+    add_satu_mare_images(main)
+  }
+}
 
-function add_satu_mare_images(data) {
-  var satu_mare = data.el
-    , pictures_el = document.createElement('div')
+function add_satu_mare_images(satu_mare) {
+  var pictures_el = document.createElement('div')
     , more = document.createElement('div')
     , counter = 0
     , limit = 4

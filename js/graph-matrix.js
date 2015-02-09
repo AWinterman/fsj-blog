@@ -1,9 +1,15 @@
 var d3 = require('d3')
   , format = require('util').format
 
-module.exports = add
+module.exports = function addGraphMatrices() {
+  var route = window.location.hash.slice(2)
 
-function add(entry) {
+  if(route === '/posts/2014-05-31-plot-matrices.md') {
+    setTimeout(add)
+  }
+}
+
+function add() {
   var big_matrix = document.getElementById('big_matrix')
     , multiple_axes = document.getElementById('multiple_axes')
     , little_matrix = document.getElementById('little_matrix')

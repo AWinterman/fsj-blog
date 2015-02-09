@@ -29,66 +29,56 @@
       line-height: 1.25;
     }
 
-    .post h1, .post h2, .post h3, .post h4{
+    h1, h2, h3, h4 {
       text-align: center;
     }
 
-    .column {
-      display: inline-block;
+    h1 {
+        font-size: 36pt
     }
-    
-    .post {
-      overflow: hidden;
+
+    h2 {
+        font-size: 18pt
+    }
+
+    h3 {
+        font-size: 18pt
+    }
+
+    .post, .nav-section {
       max-width: 30em;
       margin-left: 4em;
       margin-right: 2em;
       padding-top: 1em;
     }
 
-    .nav {
-        max-width: 20em;
-    }
-
     .hidden {
       display: None;
     }
 
-    .nav:not(.current) {
+    .nav-section li {
       list-style-type: None;
     }
 
-    .nav.current {
+    .nav-section li.current {
       list-style-type: circle;
       font-weight: bold;
     }
 
-    .nav .date {
-        margin-left: 0.5em;
-        margin-right: 0.5em;
+    li.parent {
+        margin-right: -1em;
     }
-
-    @media (min-width: 60em) {
-      .nav-section {
-        position: absolute;
-        top: 3em;
-      }
+    
+    li {
+        margin-top: 1em;
     }
 
     img {
       width: 100%;
     }
-
-    li {
-      padding-bottom: 0.5em;
-    }
-
-    ul {
-      margin: 0em;
-    }
-
+    
     a {
-      color: #6c71c4;
-      text-decoration: none;
+        color: inherit;
     }
     
     .photo {
@@ -120,7 +110,7 @@
       color: white;
     }
 
-    p {
+    p, li {
       text-align: justify;
     }
 
@@ -163,11 +153,12 @@
     <![endif]-->
   </head>
   <body>
-    <div class="column" id="main"></div>
-    <div class="column nav-section">
-      <ul id="nav">
-      </ul>
-    </div>
+    <article>
+        <section class="post column" id="main"></section>
+        <nav class="column nav-section" id="navSection">
+            <a id="navigation" href="#">Navigation</a>
+        </nav>
+    </article>
     <script type="text/javascript" src="./bundle.js"></script>
   </body>
 </html>

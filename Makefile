@@ -1,12 +1,12 @@
 SHELL := /bin/bash
 
-all: romania markup bundle rss
+all: markup romania bundle rss
 
 bundle: js/*
-	browserify -t brfs -d js/main.js > public/bundle.js
+	browserify -d js/index.js > public/bundle.js
 
 markup: posts/*
-	fsj -f "node_modules/.bin/marked" README.md posts todos > js/html-bundle.json
+	fsj -t "node_modules/.bin/marked" posts README.md > js/html-bundle.json
 
 rss: bundle markup
 	node scripts/rss.js
